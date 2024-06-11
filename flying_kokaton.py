@@ -27,7 +27,7 @@ def main():
         screen.blit(bg_img2, [-x+4800, 0]) 
 
         key_lst = pg.key.get_pressed()  # 全キーの押下状態を取得
-        move_x,movey = 0,0
+        move_x,move_y = 0,0
         if key_lst[pg.K_UP]:  # 上矢印キーが押されたら
             move_y = -1
         key_lst = pg.key.get_pressed()
@@ -42,9 +42,11 @@ def main():
         screen.blit(kk_img,kk_rct)
 
         if not any(key_lst):
-            move = -1
+            move_x = -1
         elif key_lst[pg.K_RIGHT]:
             move_x = 1
+
+        kk_rct.move_ip(move_x,move_y)
 
         screen.blit(kk_img, kk_rct)
 
